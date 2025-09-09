@@ -1,0 +1,3 @@
+-XX:+HeapDumpOnOutOfMemoryError
+-XX:HeapDumpPath=target/dumps
+-Xmx128m 
