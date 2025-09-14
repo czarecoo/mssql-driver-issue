@@ -13,7 +13,7 @@
         <result property="description" column="description"/>
         <result property="version" column="version"/>
 
-        <association property="node" javaType="org.czareg.entity.Node">
+        <association property="node" javaType="org.czareg.entity.Node">  <!-- this is a problem right here -->
             <id property="id" column="id"/>
             <result property="name" column="name"/>
             <result property="createdAt" column="created_at"/>
