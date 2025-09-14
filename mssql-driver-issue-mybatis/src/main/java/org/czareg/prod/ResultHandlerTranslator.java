@@ -1,4 +1,4 @@
-package org.czareg;
+package org.czareg.prod;
 
 import org.apache.ibatis.session.ResultContext;
 import org.apache.ibatis.session.ResultHandler;

@@ -1,17 +1,20 @@
-package org.czareg;
+package org.czareg.prod;
+
+import org.czareg.entity.FilterSortNode;
+import org.czareg.entity.Node;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProbablyBuggedResultHandler implements SimpleResultHandler<Columns> {
+public class ProbablyBuggedResultHandler implements SimpleResultHandler<FilterSortNode> {
 
-    List<Columns> finalResults = new ArrayList<>();
-    List<Columns> partialResults = new ArrayList<>();
+    //List<FilterSortNode> finalResults = new ArrayList<>();
+    List<FilterSortNode> partialResults = new ArrayList<>();
     boolean more = true;
     int batchSize = 265 * 4;
 
     @Override
-    public boolean handleResult(Columns result) {
+    public boolean handleResult(FilterSortNode result) {
         if (!more) {
             return false;
         }
@@ -21,11 +24,6 @@ public class ProbablyBuggedResultHandler implements SimpleResultHandler<Columns>
         }
 
         partialResults.add(result);
-        if(partialResults.size()>10){
-            this.more = false;
-            return more;
-        }
-        System.out.println(result);
         return more;
     }
 
@@ -37,9 +35,9 @@ public class ProbablyBuggedResultHandler implements SimpleResultHandler<Columns>
 
     private void preloadFilterAndAddToFinal() {
         // preloading caches
-        for (Columns partialResult : partialResults) {
+        for (FilterSortNode partialResult : partialResults) {
             // filtering
-            finalResults.add(partialResult);
+            //finalResults.add(partialResult);
         }
         partialResults.clear();
     }

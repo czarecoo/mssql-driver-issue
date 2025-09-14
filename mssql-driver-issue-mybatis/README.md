@@ -1,4 +1,4 @@
 -Xmx128m 
 -XX:+HeapDumpOnOutOfMemoryError
--XX:HeapDumpPath=target/dumps
+-XX:HeapDumpPath=C:\PROJECTS\mssql-driver-issue\
 -Djava.util.logging.config.file=src/main/resources/logging.properties

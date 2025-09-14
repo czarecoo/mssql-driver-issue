@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.czareg.utils.NodeMapper">
+
+    <select id="selectFirst10" resultType="org.czareg.entity.Node">
+        SELECT TOP 10
+        id,
+        name,
+        created_at AS createdAt,
+        modified_at AS modifiedAt,
+        description,
+        version
+        FROM node
+        ORDER BY id
+    </select>
+
+</mapper>

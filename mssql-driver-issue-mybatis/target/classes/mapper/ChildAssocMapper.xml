@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.czareg.utils.ChildAssocMapper">
+
+    <resultMap id="ChildAssocResultMap" type="org.czareg.entity.ChildAssoc">
+        <id property="id" column="id"/>
+        <association property="parent" javaType="org.czareg.entity.Node">
+            <id property="id" column="parent_id"/>
+        </association>
+        <association property="child" javaType="org.czareg.entity.Node">
+            <id property="id" column="child_id"/>
+        </association>
+    </resultMap>
+
+    <select id="selectFirst10" resultMap="ChildAssocResultMap">
+        SELECT TOP 10
+        id,
+        parent_id,
+        child_id
+        FROM child_assoc
+        ORDER BY id
+    </select>
+
+</mapper>
